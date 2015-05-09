@@ -11,9 +11,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.user.MealList.MealListActivity;
+import com.example.user.OrderList.OrderListActivity;
 import com.example.user.updating_service.UpdateService;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
@@ -31,7 +35,7 @@ import static com.google.android.gms.common.GooglePlayServicesUtil.isGooglePlayS
 import static com.google.android.gms.common.GooglePlayServicesUtil.isUserRecoverableError;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements View.OnClickListener {
     public static final String EXTRA_MESSAGE = "message";
     public static final String PROPERTY_REG_ID = "registration_id";
     private static final String PROPERTY_APP_VERSION = "appVersion";
@@ -62,6 +66,11 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Button order_list_button = (Button) this.findViewById(R.id.order_list);
+        order_list_button.setOnClickListener(this);
+
+        Button meal_list_button = (Button) this.findViewById(R.id.meal_list);
+        meal_list_button.setOnClickListener(this);
 
 //        ParseAnalytics.trackAppOpenedInBackground(getIntent());
 
@@ -108,5 +117,22 @@ public class MainActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.order_list:
+
+                Intent intent_order_list = new Intent(this, OrderListActivity.class);
+                startActivity(intent_order_list);
+                Toast.makeText(getBaseContext(), "Order List Button", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.meal_list:
+                Intent intent_meal_list = new Intent(this, MealListActivity.class);
+                startActivity(intent_meal_list);
+                Toast.makeText(getBaseContext(), "Meal List Button", Toast.LENGTH_LONG).show();
+                break;
+        }
     }
 }
