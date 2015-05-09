@@ -89,4 +89,7 @@ public class OrderListActivity extends Activity{
         }, 0, 10000);
     }
 
+    public boolean test(){
+        return true;
+    }
 }
