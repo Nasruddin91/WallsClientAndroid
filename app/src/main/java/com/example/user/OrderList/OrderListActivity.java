@@ -1,12 +1,14 @@
 package com.example.user.OrderList;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
 import com.example.user.pushnotificationexperiment.R;
+import com.example.user.updating_service.UpdateService;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -27,8 +29,9 @@ public class OrderListActivity extends Activity{
         listView = (ListView) findViewById(R.id.list);
         orderListAdapter = new OrderListAdapter(this);
         listView.setAdapter(orderListAdapter);
-
-        // We get all order where havent been served, include meal information in the response
+        Intent intent = new Intent(this, UpdateService.class);
+        startService(intent);
+//        // We get all order where havent been served, include meal information in the response
         ParseQuery<ParseObject> queryAllOrders = ParseQuery.getQuery("Order");
         queryAllOrders.whereEqualTo("isServed", false);
         queryAllOrders.include("mealId");

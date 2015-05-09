@@ -59,7 +59,7 @@ public class UpdateService extends IntentService {
                     Log.d("Parse", "canot get parse object");
                 }
                 try {
-                    Thread.sleep(5000);
+                    Thread.sleep(10000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
