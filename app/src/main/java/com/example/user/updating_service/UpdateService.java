@@ -95,6 +95,7 @@ public class UpdateService extends IntentService {
         // Make the Bundle the "data" of the Message.
         msg.setData(allData);
 
+        ParseQuery.clearAllCachedResults();
         try {
             // Send the Message back to the client Activity.
             messenger.send(msg);

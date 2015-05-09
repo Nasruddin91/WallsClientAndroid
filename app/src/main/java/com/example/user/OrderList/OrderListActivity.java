@@ -11,6 +11,7 @@ import android.widget.ListView;
 import com.example.user.pushnotificationexperiment.R;
 import com.example.user.updating_service.UpdateService;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
