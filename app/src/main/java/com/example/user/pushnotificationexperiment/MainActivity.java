@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.user.updating_service.UpdateService;
 import com.google.android.gms.common.ConnectionResult;
@@ -61,30 +62,31 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ParseAnalytics.trackAppOpenedInBackground(getIntent());
-
-        // We get all order where havent been served, include meal information in the response
-        ParseQuery<ParseObject> queryAllOrders = ParseQuery.getQuery("Order");
-        queryAllOrders.whereEqualTo("isServed", false);
-        queryAllOrders.include("mealId");
-        queryAllOrders.findInBackground(new FindCallback<ParseObject>() {
-            @Override
-            public void done(List<ParseObject> list, ParseException e) {
-                if (e != null) {
-                    // Handle exception
-                    Log.e("Order", e.getMessage());
-                    return;
-                }
-
-                Log.d("Parse", "Retrieved " + list.size() + " orders");
-                for (int i = 0; i < list.size(); i++) {
-                    Log.d("Parse", "Seller " + i + ": " + list.get(i).getParseObject("mealId").get("name"));
-                }
-            }
-        });
-
         Intent intent = new Intent(this, UpdateService.class);
         startService(intent);
+//        ParseAnalytics.trackAppOpenedInBackground(getIntent());
+
+//        // We get all order where havent been served, include meal information in the response
+//        ParseQuery<ParseObject> queryAllOrders = ParseQuery.getQuery("Order");
+//        queryAllOrders.whereEqualTo("isServed", false);
+//        queryAllOrders.include("mealId");
+//        queryAllOrders.findInBackground(new FindCallback<ParseObject>() {
+//            @Override
+//            public void done(List<ParseObject> list, ParseException e) {
+//                if (e != null) {
+//                    // Handle exception
+//                    Log.e("Order", e.getMessage());
+//                    return;
+//                }
+//
+//                Log.d("Parse", "Retrieved " + list.size() + " orders");
+//                for (int i = 0; i < list.size(); i++) {
+//                    Log.d("Parse", "Seller " + i + ": " + list.get(i).getParseObject("mealId").get("name"));
+//                }
+//            }
+//        });
+
+
     }
 
     @Override

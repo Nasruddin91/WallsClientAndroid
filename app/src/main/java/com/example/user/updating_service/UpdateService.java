@@ -3,6 +3,7 @@ package com.example.user.updating_service;
 import android.app.IntentService;
 import android.content.Intent;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -25,6 +26,11 @@ public class UpdateService extends IntentService {
         super("UpdateServcice");
     }
 
+    public int onStartCommand(Intent intent, int flags, int startId) {
+//        Toast.makeText(this, "service starting", Toast.LENGTH_SHORT).show();
+        return super.onStartCommand(intent,flags,startId);
+    }
+
     /**
      * The IntentService calls this method from the default worker thread with
      * the intent that started the service. When this method returns, IntentService
@@ -34,7 +40,8 @@ public class UpdateService extends IntentService {
     protected void onHandleIntent(Intent intent) {
         // Normally we would do some work here, like download a file.
         // For our sample, we just sleep for 5 seconds.
-        long endTime = System.currentTimeMillis() + 5 * 1000;
+        
+//        long endTime = System.currentTimeMillis() + 5 * 1000;
         while (true) {
             synchronized (this) {
                 try {
@@ -50,6 +57,11 @@ public class UpdateService extends IntentService {
 
                 }catch (Exception e){
                     Log.d("Parse", "canot get parse object");
+                }
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         }
