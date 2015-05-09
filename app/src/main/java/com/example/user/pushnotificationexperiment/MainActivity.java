@@ -62,8 +62,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent intent = new Intent(this, UpdateService.class);
-        startService(intent);
+
 //        ParseAnalytics.trackAppOpenedInBackground(getIntent());
 
 //        // We get all order where havent been served, include meal information in the response

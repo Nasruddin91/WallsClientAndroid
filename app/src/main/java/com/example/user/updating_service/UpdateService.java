@@ -3,7 +3,6 @@ package com.example.user.updating_service;
 import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -56,11 +55,6 @@ public class UpdateService extends IntentService {
                 queryAllOrders.whereEqualTo("isServed", false);
                 queryAllOrders.include("mealId");
                 List<ParseObject> list = queryAllOrders.find();
-
-                Log.d("Parse", "Retrieved " + list.size() + " orders");
-                for (int i = 0; i < list.size(); i++) {
-                    Log.d("Parse", "Seller " + i + ": " + list.get(i).getParseObject("mealId").get("name"));
-                }
 
                 sendPath(list, (Messenger) intent.getParcelableExtra(MESSENGER_KEY));
 

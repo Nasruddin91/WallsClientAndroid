@@ -10,10 +10,7 @@ import android.widget.ListView;
 
 import com.example.user.pushnotificationexperiment.R;
 import com.example.user.updating_service.UpdateService;
-import com.parse.ParseACL;
-import com.parse.ParseException;
 import com.parse.ParseObject;
-import com.parse.ParseUser;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
