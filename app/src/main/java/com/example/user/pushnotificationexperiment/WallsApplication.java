@@ -1,10 +1,14 @@
 package com.example.user.pushnotificationexperiment;
 
 import android.app.Application;
+import android.util.Log;
 
+import com.parse.LogInCallback;
 import com.parse.Parse;
 import com.parse.ParseACL;
+import com.parse.ParseAnonymousUtils;
 import com.parse.ParseCrashReporting;
+import com.parse.ParseException;
 import com.parse.ParseUser;
 
 /**
@@ -26,10 +30,11 @@ public class WallsApplication extends Application {
         Parse.initialize(this);
 
         ParseUser.enableAutomaticUser();
+        ParseUser.getCurrentUser().saveInBackground();
 
         ParseACL defaultACL = new ParseACL();
         // Optionally enable public read access.
-        // defaultACL.setPublicReadAccess(true);
+//        defaultACL.setPublicReadAccess(true);
         ParseACL.setDefaultACL(defaultACL, true);
     }
 }
