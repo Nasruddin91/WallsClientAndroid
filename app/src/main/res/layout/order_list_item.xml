@@ -5,28 +5,30 @@
     android:padding="10dp" >
 
     <TextView
-        android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Mead Name"
+        android:gravity="center"
+        android:id="@+id/mealname" />
     <TextView
-        android:id="@+id/text2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text1"
-        android:layout_toRightOf="@+id/text1"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:layout_below="@+id/mealname"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Table ID"
+        android:gravity="center"
+        android:id="@+id/tableid" />
 
     <Button
-        android:id="@+id/addButton"
+        android:id="@+id/finishButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/text1"
+        android:layout_alignTop="@+id/mealname"
         android:layout_marginRight="10dp"
         android:background="@color/gold"
-        android:text="Add" />
+        android:text="Finish" />
 
 </RelativeLayout>
