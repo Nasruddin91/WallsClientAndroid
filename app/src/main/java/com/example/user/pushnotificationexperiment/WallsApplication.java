@@ -24,7 +24,7 @@ public class WallsApplication extends Application {
         ParseCrashReporting.enable(this);
 
         // Enable Local Datastore.
-        Parse.enableLocalDatastore(this);
+//        Parse.enableLocalDatastore(this);
 
         // Add your initialization code here
         Parse.initialize(this);
@@ -34,7 +34,8 @@ public class WallsApplication extends Application {
 
         ParseACL defaultACL = new ParseACL();
         // Optionally enable public read access.
-//        defaultACL.setPublicReadAccess(true);
+        defaultACL.setPublicReadAccess(true);
+        defaultACL.setPublicWriteAccess(true);
         ParseACL.setDefaultACL(defaultACL, true);
     }
 }

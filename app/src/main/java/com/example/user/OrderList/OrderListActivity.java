@@ -50,7 +50,7 @@ public class OrderListActivity extends Activity{
                     ParseObject order = ParseObject.create("Order");
                     ParseObject meal = ParseObject.create("Meal");
 
-                    order.put("objectId", data.getString(UpdateService.OBJECTID_KEY));
+                    order.setObjectId(data.getString(UpdateService.OBJECTID_KEY));
                     order.put("tableName", data.getString(UpdateService.TABLENAME_KEY));
                     order.put("isServed", data.getBoolean(UpdateService.ISSERVED_KEY));
 
