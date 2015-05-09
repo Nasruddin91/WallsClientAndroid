@@ -2,6 +2,7 @@ package com.example.user.pushnotificationexperiment;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -12,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.example.user.updating_service.UpdateService;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.parse.FindCallback;
@@ -80,6 +82,9 @@ public class MainActivity extends Activity {
                 }
             }
         });
+
+        Intent intent = new Intent(this, UpdateService.class);
+        startService(intent);
     }
 
     @Override
