@@ -68,6 +68,7 @@ public class UpdateService extends IntentService {
     public static String OBJECTID_KEY = "ObjectId Key";
     public static String TABLENAME_KEY = "TableName Key";
     public static String ISSERVED_KEY = "IsServed Key";
+    public static String MEALID_KEY = "MealId Key";
     public static String MEALNAME_KEY = "MealName Key";
     public static String DATA_KEY = "Data Key";
     public static String DATA_SIZE = "Data Size";
@@ -85,6 +86,7 @@ public class UpdateService extends IntentService {
             data.putString(TABLENAME_KEY, order.getString("tableName"));
             data.putBoolean(ISSERVED_KEY, order.getBoolean("isServed"));
             data.putString(MEALNAME_KEY, order.getParseObject("mealId").getString("name"));
+            data.putString(MEALID_KEY, order.getParseObject("mealId").getObjectId());
 
             allData.putBundle(DATA_KEY + i, data);
         }

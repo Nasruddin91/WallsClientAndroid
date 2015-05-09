@@ -54,6 +54,7 @@ public class OrderListActivity extends Activity{
                     order.put("isServed", data.getBoolean(UpdateService.ISSERVED_KEY));
 
                     meal.put("name", data.getString(UpdateService.MEALNAME_KEY));
+                    meal.setObjectId(data.getString(UpdateService.MEALID_KEY));
                     order.put("mealId", meal);
                     orderList.add(order);
                 }
