@@ -56,4 +56,7 @@ public class OrderListActivity extends Activity{
         });
     }
 
+    public boolean test(){
+        return true;
+    }
 }
