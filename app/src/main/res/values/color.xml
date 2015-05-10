@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources> 
+<resources>
+    <color name="themeblue">#009ACD</color>
+    <color name="bluee">#60CEFD</color>
+    <color name="blue">#009ACD</color>
     <color name="messageGreen">#00B000</color>
     <color name="mycolor">#7fff00ff</color>
     <color name="puzzle_background">#ffe6f0ff</color>

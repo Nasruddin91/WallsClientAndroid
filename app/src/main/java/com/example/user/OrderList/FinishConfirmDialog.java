@@ -41,7 +41,7 @@ public class FinishConfirmDialog extends DialogFragment {
         this.tableid = tableid;
         this.ctx = c;
         Log.i("set selection","Set values");
-        //Toast.makeText(c, "Account£º"+this.userName+"/"+this.userId, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(c, "Account"+this.userName+"/"+this.userId, Toast.LENGTH_SHORT).show();
         return false;
     }
 }

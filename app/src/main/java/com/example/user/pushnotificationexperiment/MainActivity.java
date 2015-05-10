@@ -12,7 +12,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -60,17 +62,22 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     String regid;
 
+    private String sellerid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.login);
+//        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-        Button order_list_button = (Button) this.findViewById(R.id.order_list);
-        order_list_button.setOnClickListener(this);
+        getActionBar().hide();
+        Button login_submit_button = (Button) this.findViewById(R.id.submit_button);
+        login_submit_button.setOnClickListener(this);
 
-        Button meal_list_button = (Button) this.findViewById(R.id.meal_list);
-        meal_list_button.setOnClickListener(this);
+
+
+
+
 
 //        ParseAnalytics.trackAppOpenedInBackground(getIntent());
 
@@ -133,6 +140,22 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 startActivity(intent_meal_list);
                 Toast.makeText(getBaseContext(), "Meal List Button", Toast.LENGTH_LONG).show();
                 break;
+            case R.id.submit_button:
+                EditText login_edittext_sellerid = (EditText) this.findViewById(R.id.edittext_sellerid);
+                sellerid = login_edittext_sellerid.getText().toString();
+                UpdateService.SELLER_ID = sellerid;
+                Toast.makeText(getBaseContext(), "Submit seller id " + sellerid, Toast.LENGTH_LONG).show();
+
+                setContentView(R.layout.activity_main);
+
+                Button order_list_button = (Button) this.findViewById(R.id.order_list);
+                order_list_button.setOnClickListener(this);
+
+                Button meal_list_button = (Button) this.findViewById(R.id.meal_list);
+                meal_list_button.setOnClickListener(this);
+
+                break;
+
         }
     }
 }
