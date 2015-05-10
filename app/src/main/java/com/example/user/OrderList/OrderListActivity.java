@@ -88,7 +88,7 @@ public class OrderListActivity extends Activity{
                 startService(intent);
                 Log.d("OrderListActivity", "done start service");
             }
-        }, 0, 10000);
+        }, 0, 3000);
     }
 
     public boolean test(){

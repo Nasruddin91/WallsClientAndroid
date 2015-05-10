@@ -22,7 +22,7 @@ import java.util.List;
 public class UpdateService extends IntentService {
 
     public static final String MESSENGER_KEY = "MESSENGER";
-    public static String SELLER_ID = "b3PZRuXc1E";
+    public static String SELLER_ID = "W9gOIm7Lbv";
 
 
     /**
@@ -59,9 +59,6 @@ public class UpdateService extends IntentService {
                 ParseQuery<ParseObject> queryAllOrders = ParseQuery.getQuery("Order");
                 queryAllOrders.include("mealId");
                 queryAllOrders.whereMatchesQuery("mealId", queryMealForTheSeller);
-//                queryAllOrders.whereMatchesKeyInQuery("mealId", "objectId",queryMealForTheSeller);
-
-//                queryAllOrders.whereEqualTo("sellerId", ParseObject.createWithoutData("Seller", SELLER_ID));
                 queryAllOrders.whereEqualTo("isServed", false);
 
                 List<ParseObject> list = queryAllOrders.find();
