@@ -28,7 +28,9 @@
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/mealname"
         android:layout_marginRight="10dp"
-        android:background="@color/gold"
+        android:textSize="15sp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/box"
         android:text="Finish" />
 
 </RelativeLayout>
