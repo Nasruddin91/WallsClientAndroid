@@ -24,7 +24,7 @@ public class WallsApplication extends Application {
         ParseCrashReporting.enable(this);
 
         // Enable Local Datastore.
-        Parse.enableLocalDatastore(this);
+//        Parse.enableLocalDatastore(this);
 
         // Add your initialization code here
         Parse.initialize(this);

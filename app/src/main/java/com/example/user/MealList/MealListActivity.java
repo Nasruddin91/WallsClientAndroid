@@ -23,7 +23,7 @@ public class MealListActivity extends Activity {
 
     private ListView listView;
     private MealListAdapter mealListAdapter;
-    private String seller_id = "4J9ILTJJq9" ;
+    private String seller_id = UpdateService.SELLER_ID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
