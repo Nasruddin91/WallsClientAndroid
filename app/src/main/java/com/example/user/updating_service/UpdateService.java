@@ -22,6 +22,8 @@ import java.util.List;
 public class UpdateService extends IntentService {
 
     public static final String MESSENGER_KEY = "MESSENGER";
+    public static final String SELLER_ID = "b3PZRuXc1E";
+
 
     /**
      * A constructor is required, and must call the super IntentService(String)
@@ -51,10 +53,26 @@ public class UpdateService extends IntentService {
         Log.d("UpdateService", "on handle intent");
         synchronized (this) {
             try {
+                ParseQuery<ParseObject> queryMealForTheSeller = ParseQuery.getQuery("Meal");
+                queryMealForTheSeller.whereEqualTo("sellerId", ParseObject.createWithoutData("Seller", SELLER_ID));
+
                 ParseQuery<ParseObject> queryAllOrders = ParseQuery.getQuery("Order");
-                queryAllOrders.whereEqualTo("isServed", false);
                 queryAllOrders.include("mealId");
+                queryAllOrders.whereMatchesQuery("mealId", queryMealForTheSeller);
+//                queryAllOrders.whereMatchesKeyInQuery("mealId", "objectId",queryMealForTheSeller);
+
+//                queryAllOrders.whereEqualTo("sellerId", ParseObject.createWithoutData("Seller", SELLER_ID));
+                queryAllOrders.whereEqualTo("isServed", false);
+
                 List<ParseObject> list = queryAllOrders.find();
+
+                Log.d("Parse", "Retrieved " + list.size() + " orders");
+                for (int i = 0; i < list.size(); i++) {
+                    Log.d("Parse", "Orders " + i + ": " + list.get(i).get("name"));
+                }
+
+//
+//                List<ParseObject> list = queryAllOrders.find();
 
                 sendPath(list, (Messenger) intent.getParcelableExtra(MESSENGER_KEY));
 

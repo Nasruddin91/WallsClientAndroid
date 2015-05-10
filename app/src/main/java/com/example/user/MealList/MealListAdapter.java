@@ -14,6 +14,7 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.example.user.pushnotificationexperiment.R;
+import com.example.user.updating_service.UpdateService;
 import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.Parse;
@@ -30,6 +31,7 @@ import java.util.List;
 public class MealListAdapter extends ArrayAdapter<ParseObject> {
 
     private final Context ctx;
+    private String seller_id = UpdateService.SELLER_ID;
 
     public MealListAdapter(Context context) {
         super(context, 0);
@@ -92,7 +94,7 @@ public class MealListAdapter extends ArrayAdapter<ParseObject> {
 
     public void resetView(){
         ParseQuery<ParseObject> queryAllOrders = ParseQuery.getQuery("Meal");
-        queryAllOrders.whereEqualTo("sellerId", ParseObject.createWithoutData("Seller", "4J9ILTJJq9") );
+        queryAllOrders.whereEqualTo("sellerId", ParseObject.createWithoutData("Seller", seller_id) );
         queryAllOrders.include("mealId");
         queryAllOrders.findInBackground(new FindCallback<ParseObject>() {
             @Override
