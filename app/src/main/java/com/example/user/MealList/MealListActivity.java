@@ -32,8 +32,6 @@ public class MealListActivity extends Activity {
         listView = (ListView) findViewById(R.id.list);
         mealListAdapter = new MealListAdapter(this);
         listView.setAdapter(mealListAdapter);
-        Intent intent = new Intent(this, UpdateService.class);
-        startService(intent);
 
         ParseQuery<ParseObject> queryAllOrders = ParseQuery.getQuery("Meal");
         queryAllOrders.whereEqualTo("sellerId", ParseObject.createWithoutData("Seller", UpdateService.SELLER_ID) );
