@@ -22,7 +22,7 @@ import java.util.List;
 public class UpdateService extends IntentService {
 
     public static final String MESSENGER_KEY = "MESSENGER";
-    public static String SELLER_ID = "b3PZRuXc1E";
+    public static final String SELLER_ID = "b3PZRuXc1E";
 
 
     /**
