@@ -23,7 +23,6 @@ public class MealListActivity extends Activity {
 
     private ListView listView;
     private MealListAdapter mealListAdapter;
-    private String seller_id = UpdateService.SELLER_ID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +36,7 @@ public class MealListActivity extends Activity {
         startService(intent);
 
         ParseQuery<ParseObject> queryAllOrders = ParseQuery.getQuery("Meal");
-        queryAllOrders.whereEqualTo("sellerId", ParseObject.createWithoutData("Seller", seller_id) );
+        queryAllOrders.whereEqualTo("sellerId", ParseObject.createWithoutData("Seller", UpdateService.SELLER_ID) );
         queryAllOrders.include("mealId");
         queryAllOrders.findInBackground(new FindCallback<ParseObject>() {
             @Override

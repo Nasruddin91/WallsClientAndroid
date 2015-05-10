@@ -31,7 +31,6 @@ import java.util.List;
 public class MealListAdapter extends ArrayAdapter<ParseObject> {
 
     private final Context ctx;
-    private String seller_id = UpdateService.SELLER_ID;
 
     public MealListAdapter(Context context) {
         super(context, 0);
@@ -94,7 +93,7 @@ public class MealListAdapter extends ArrayAdapter<ParseObject> {
 
     public void resetView(){
         ParseQuery<ParseObject> queryAllOrders = ParseQuery.getQuery("Meal");
-        queryAllOrders.whereEqualTo("sellerId", ParseObject.createWithoutData("Seller", seller_id) );
+        queryAllOrders.whereEqualTo("sellerId", ParseObject.createWithoutData("Seller", UpdateService.SELLER_ID) );
         queryAllOrders.include("mealId");
         queryAllOrders.findInBackground(new FindCallback<ParseObject>() {
             @Override
@@ -107,7 +106,7 @@ public class MealListAdapter extends ArrayAdapter<ParseObject> {
                     Log.d("Meal", "e is null");
                 }
 
-                Log.d("Parse", "Retrieved " + list.size() + " orders");
+                Log.d("Parse", "Retrieved " + list.size() + " meals");
                 for (int i = 0; i < list.size(); i++) {
                     Log.d("Parse", "Meal " + i + ": " + list.get(i).get("name"));
                 }

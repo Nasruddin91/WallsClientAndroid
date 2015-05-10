@@ -65,7 +65,7 @@ public class UpdateService extends IntentService {
                 queryAllOrders.whereEqualTo("isServed", false);
 
                 List<ParseObject> list = queryAllOrders.find();
-
+                Log.d("Seller_id", SELLER_ID);
                 Log.d("Parse", "Retrieved " + list.size() + " orders");
                 for (int i = 0; i < list.size(); i++) {
                     Log.d("Parse", "Orders " + i + ": " + list.get(i).get("name"));
